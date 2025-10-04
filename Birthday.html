@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: auto;
+            background: url("Birthday.png") no-repeat center center/cover;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+           
+            overflow: scroll;
+            max-width: 600px;
+            scroll-behavior: smooth;
+        }
+        @media (max-width: 600px) {
+            body {
+                flex-direction: column;
+                overflow: auto;
+                max-width: 400px;
+                margin: auto;
+            }
+        }
+        #container {
+            text-align: center;
+            position: relative;
+           margin-top: 100%;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.573);
+        }
+        h3 {
+            margin: 10px 0;
+            font-size: 24px;
+            animation: fadeInUp 5s ease-in-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+        #first-line {font-size: 50px; animation-delay: 0.3s; }
+        #second-line { animation-delay: 0.6s; }
+        #third-line { animation-delay: 0.9s; }
+        #fourth-line { animation-delay: 1.2s; }
+        #fifth-line { animation-delay: 1.5s; }
+        #sixth-line { animation-delay: 1.8s; }
+        #seventh-line { animation-delay: 2.1s; }
+        #eighth-line { animation-delay: 2.4s; }
+        #ninth-line { animation-delay: 2.7s; }  
+        #tenth-line { animation-delay: 3s; }
+        #eleventh-line { animation-delay: 3.3s; }
+        #twelfth-line { animation-delay: 3.6s; }
+
+        #startBtn {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #185c67;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+    </style>
+    <style>
+/* Snowflake style */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+}
+
+#Gift {
+  font-size: 30px;
+  margin-top: 20px;
+  animation: fadeInUp1 5s ease-in-out forwards;
+  opacity: 0;
+  
+}
+@keyframes fadeInUp1 {
+    from {
+        opacity: 0;
+        transform: scale(1) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2) translateY(0);
+}
+}
+/* #emoji {
+  font-size: 40px;
+  position:absolute;
+  animation: bounce 2s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+@keyframes bounce {
+  from {
+    transform: scale(1) ;
+  }
+  to {
+    transform: scale(1.5) ;
+  }
+} */
+
+#giftLink {
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+    font-size: 20px;
+    background-color: royalblue;
+  transition: all 0.3s ease;
+  margin: 10% auto;
+    display: inline-block;
+    animation: fadeInUp2 1s ease-in-out alternate infinite;
+}
+@keyframes fadeInUp2 {
+    from {
+        
+        transform: scale(1) translateY(20px);
+    }
+    to {
+        
+        transform: scale(1.2) translateY(0);
+}
+}
+#giftLink:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Snowfall animation */
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0.5;
+  }
+}
+</style>
+
+<script>
+// Snowfall effect
+function createSnowflake() {
+  const snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  const size = Math.random() * 8 + 2; // snowflake size 2px - 10px
+  snowflake.style.width = size + 'px';
+  snowflake.style.height = size + 'px';
+  snowflake.style.left = Math.random() * window.innerWidth + 'px';
+  snowflake.style.animationDuration = (5 + Math.random() * 5) + 's'; // 5-10s fall
+  snowflake.style.opacity = Math.random();
+
+  document.body.appendChild(snowflake);
+
+  setTimeout(() => {
+    snowflake.remove();
+  }, 10000); // remove after 10s
+}
+
+// Continuously create snowflakes
+setInterval(createSnowflake, 200); // every 200ms
+</script>
+
+</head>
+<body>
+     <button id="startBtn">Start 🎵</button>
+<audio id="bgAudio" loop>
+  <source src="aud.mp3" type="audio/mp3">
+</audio>
+    <div id="container">
+       
+
+<script>
+const startBtn = document.getElementById('startBtn');
+const audio = document.getElementById('bgAudio');
+
+startBtn.addEventListener('click', () => {
+  audio.play();       // audio play guaranteed
+  startBtn.style.display = 'none'; // hide button
+});
+</script>
+
+        <h3 id="first-line">Happy Birthday!</h3>
+        <h3 id="second-line">My Cute Didi 💞</h3>
+        <h3 id="third-line">Shree Radhey Tumhe Hamesa KHush Rakhe ❤️</h3>
+        <h3 id="fourth-line">May your day be filled with love and joy! 🎉</h3>
+        <h3 id="fifth-line">And may all your dreams come true! 🌈</h3>
+        <h3 id="sixth-line">I love you so much! my cute Didi😊 ❤️</h3>
+        <h3 id="seventh-line">Have a fantastic day! 🎂</h3><br>
+        <h3 id="eighth-line">Kaisa lgaa Bandariya ye Gift?  🎁</h3><br>
+        <h3 id="ninth-line">Umeed hai pasand aayega! ❤️</h3><br>
+        <h3 id="tenth-line">Khush Raho, Muskurate Raho! 😊</h3><br>
+        <h3 id="eleventh-line">With lots of love, Rajat ❤️</h3><br>
+        <h3 id="twelfth-line">ye jo button hai, isse dabaana mat bhoolna! 🎁</h3><br>
+        <h3 id="Gift">Your Gift is Waiting! 🎁</h3>
+        <h3 id="emoji">👇</h3>
+        <a id="giftLink" href="new.html">Open Gift</a>
+
+
+
+  
+</body>
+</html>

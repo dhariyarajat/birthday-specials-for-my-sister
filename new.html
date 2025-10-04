@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* scroll na aaye */
+  background: url('Birthday.png') no-repeat center center/cover;
+}
+
+#moveBtn {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  padding: 12px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 150px;
+  transition: all 0.4s ease; /* smooth shift */
+  border: none;
+  border-radius: 999px;
+  background-color: #2850a7;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  
+}
+#card {
+ margin-top: 20%;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #f0eaea;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.388);
+}
+#text {
+  font-size: 30px;
+  margin-bottom: 10px;
+  animation: fadeInUp 2s ease-in-out alternate infinite;
+  
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+
+  }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    /* transform: scale(1.2); */
+  }
+  
+}
+#emoji {
+  font-size: 50px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+#startBtn {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #185c67;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+</style>
+</head>
+<body>
+  <!-- <audio src="aud.mp3" autoplay loop></audio> -->
+   
+        <audio autoplay="autoplay" height="100" width="100" id="myAudio">
+            <source src="aud.mp3" type="audio/mp3" />
+            <embed height="100" width="100" src="aud.mp3" />
+        </audio>
+       <button id="startBtn">Start 🎵</button>
+<audio id="bgAudio" loop>
+  <source src="aud.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const startBtn = document.getElementById('startBtn');
+const audio = document.getElementById('myAudio');
+
+startBtn.addEventListener('click', () => {
+  audio.play();       // audio play guaranteed
+  startBtn.style.display = 'none'; // hide button
+});
+</script>
+</script>
+  <div id="card">
+    <h3 id="text">Your Gift is Waiting! 🎁</h3>
+    <h3 id="emoji">👇</h3>
+  </div>
+<button id="moveBtn">Open it! 🎉</button>
+
+<script>
+const btn = document.getElementById("moveBtn");
+
+function moveButton() {
+  const btnWidth = btn.offsetWidth;
+  const btnHeight = btn.offsetHeight;
+
+  const maxX = window.innerWidth - btnWidth;
+  const maxY = window.innerHeight - btnHeight;
+
+  const x = Math.floor(Math.random() * maxX);
+  const y = Math.floor(Math.random() * maxY);
+
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+
+// click pe bhi move
+btn.addEventListener("click", moveButton);
+
+// hover pe bhi move
+btn.addEventListener("mouseover", moveButton);
+</script>
+
+</body>
+</html>
